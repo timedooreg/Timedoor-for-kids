@@ -8,8 +8,6 @@ void setup() {
   pinMode(10, OUTPUT);
   pinMode(11, OUTPUT);
   pinMode(13, INPUT);
-  analogWrite(10,100);
-  analogWrite(11,100);
 }
 
 void back(){
@@ -20,7 +18,8 @@ void back(){
   digitalWrite(5,LOW); //back  
   }
   void forward(){
-
+  analogWrite(10,100);
+  analogWrite(11,100);
   Serial.print("\nMoving forward");
   digitalWrite(2,HIGH);
   digitalWrite(3,LOW);
@@ -37,19 +36,21 @@ void back(){
   
 
 void turn_right(){
-  Serial.print("\nTurn Right");
+  analogWrite(10,70);
+  analogWrite(11,70);
   digitalWrite(2,HIGH);
   digitalWrite(3,LOW);
-  digitalWrite(4,LOW);
+  digitalWrite(4,HIGH);
   digitalWrite(5,LOW);
   delay(1000);
   } 
 
 
 void turn_left(){
-  Serial.print("\nTurn Left");
-  digitalWrite(0,LOW);
-  digitalWrite(1,LOW);
+  analogWrite(10,70);
+  analogWrite(11,70);
+  digitalWrite(2,LOW);
+  digitalWrite(3,HIGH);
   digitalWrite(4,LOW);
   digitalWrite(5,HIGH);
   delay(1000);
@@ -61,9 +62,6 @@ void follow_object(){
   stop();
   }
 void loop() {
-  //Serial.print(analogRead(A0));
-  //A0 right
-  //A1 Left
   if (analogRead(A1)<300 && analogRead(A0)<300)
   forward();
   if (analogRead(A1)>300)
