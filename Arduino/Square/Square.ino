@@ -46,8 +46,8 @@ void turn_right(){
 
 void turn_left(){
   Serial.print("\nTurn Left");
-  digitalWrite(0,LOW);
-  digitalWrite(1,LOW);
+  digitalWrite(2,LOW);
+  digitalWrite(3,LOW);
   digitalWrite(4,LOW);
   digitalWrite(5,HIGH);
   delay(1000);
@@ -60,13 +60,6 @@ void follow_object(){
   }
 void loop() {
   forward();
-  for(int i=0;i<3;i++){
   turn_left();
-  forward();
-  turn_left();
-  forward();
-  turn_left();
-  forward();
-  }
-  
+
   }
