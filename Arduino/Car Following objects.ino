@@ -1,6 +1,7 @@
 
 void setup() {
   // put your setup code here, to run once:
+  int speed = 100;
   Serial.begin(9600);
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
@@ -58,7 +59,7 @@ void turn_left(){
   } 
 void follow_object(){
   if(digitalRead(13) == 0)
-  forward();  
+  forward(speed);  
   else
   stop();
   }
