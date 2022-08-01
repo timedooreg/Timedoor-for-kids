@@ -18,9 +18,9 @@ void back(){
   digitalWrite(4,HIGH);
   digitalWrite(5,LOW); //back  
   }
-  void forward(){
-  analogWrite(10,100);
-  analogWrite(11,100);
+  void forward(int speed){
+  analogWrite(10,speed);
+  analogWrite(11,speed);
   Serial.print("\nMoving forward");
   digitalWrite(2,HIGH);
   digitalWrite(3,LOW);
