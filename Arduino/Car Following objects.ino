@@ -1,7 +1,6 @@
 
 void setup() {
   // put your setup code here, to run once:
-  int speed = 100;
   Serial.begin(9600);
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
@@ -13,56 +12,27 @@ void setup() {
 }
 
 void back(){
-
   digitalWrite(2,LOW);
   digitalWrite(3,HIGH);
   digitalWrite(4,HIGH);
   digitalWrite(5,LOW); //back  
   }
-  void forward(int speed){
-  analogWrite(10,speed);
-  analogWrite(11,speed);
-  Serial.print("\nMoving forward");
+void forward(){
   digitalWrite(2,HIGH);
   digitalWrite(3,LOW);
   digitalWrite(4,LOW);
   digitalWrite(5,HIGH); //forward
-  
   }
-  void stop(){
+void stop(){
   digitalWrite(2,LOW);
   digitalWrite(3,LOW);
   digitalWrite(4,LOW);
   digitalWrite(5,LOW); 
  }
   
-
-void turn_right(){
-  analogWrite(10,70);
-  analogWrite(11,70);
-  digitalWrite(2,HIGH);
-  digitalWrite(3,LOW);
-  digitalWrite(4,HIGH);
-  digitalWrite(5,LOW);
-  delay(1000);
-  } 
-
-
-void turn_left(){
-  analogWrite(10,70);
-  analogWrite(11,70);
-  digitalWrite(2,LOW);
-  digitalWrite(3,HIGH);
-  digitalWrite(4,LOW);
-  digitalWrite(5,HIGH);
-  delay(1000);
-  } 
-void follow_object(){
-  if(digitalRead(13) == 0)
-  forward(speed);  
-  else
-  stop();
-  }
 void loop() {
-  follow_object();
+  while(digitalRead(13) == 0){
+  forward();  
+  }
+  stop();
   }
